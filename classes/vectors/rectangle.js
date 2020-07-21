@@ -1,8 +1,7 @@
-class Rectangle{
+class Rectangle extends Vector{
 
     constructor(xPosition, yPosition, width, height){
-        this.xPosition = xPosition
-        this.yPosition = yPosition
+        super(xPosition, yPosition)
         this.width = width
         this.height = height
         this.fill = "black"
@@ -10,13 +9,6 @@ class Rectangle{
         this.svg = `
             <rect fill="black" x=${xPosition} y=${yPosition} width=${width} height=${height} />
         `
-        this.layer = null
-    }
-
-    setPosition(x, y){
-        this.xPosition = x
-        this.yPosition = y
-        this.rerender_svg()
     }
 
     get_html(){

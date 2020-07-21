@@ -7,10 +7,10 @@ class CircleTool extends Tool{
     }
 
     handle_click(e){
-        this.test()
         let offset = this.get_page_position(e)
         let newRT = new Circle(offset.x, offset.y, 0)
         let newLayer = this.illustrator.new_layer(newRT)
+        newRT.setLayer(newLayer)
         this.currentRect = newRT
 
         console.log("New Circle created : " + newRT )

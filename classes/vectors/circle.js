@@ -1,15 +1,13 @@
-class Circle{
+class Circle extends Vector{
 
     constructor(xPosition, yPosition, radius){
-        this.xPosition = xPosition
-        this.yPosition = yPosition
+        super(xPosition, yPosition)
         this.radius = radius
         this.fill = "black"
         this.stroke = null
         this.svg = `
             <circle cx=${xPosition} cy=${yPosition} r=${radius} fill="black" />
         `
-        this.layer = null
     }
 
     get_html(){
@@ -26,9 +24,15 @@ class Circle{
     }
 
     rerender_svg(){
-        this.svg = `
-            <circle cx=${this.xPosition} cy=${this.yPosition} r=${this.radius} fill="black" />
+        if (this.layer) {
+            this.svg = `
+           <circle id=${this.layer.name} cx=${this.xPosition} cy=${this.yPosition} r=${this.radius} fill="black" />
+         `
+        } else {
+            this.svg = `
+           <circle cx=${this.xPosition} cy=${this.yPosition} r=${this.radius} fill="black" />
         `
+        }
     }
 
 
