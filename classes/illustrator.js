@@ -5,10 +5,20 @@ class Illustrator {
         this.layers = []
         this.selected_layer = null
         this.canvas = canvas
+        // this.color_picker_fill = "black"
+        // this.color_picker_stroke = "black"
     }
 
     set_active_tool(tool) {
         this.active_tool = tool
+    }
+
+    update_layer_panel(){
+        let layer_panel = document.getElementById("layer_panel")
+        removeAllChildNodes(layer_panel)
+        this.layers.forEach(layer => {
+            layer_panel.insertAdjacentHTML('afterbegin', `<p class="layers_panel_item">${layer.name}</p>`)
+        })
     }
 
     new_layer(vector) {
@@ -17,7 +27,7 @@ class Illustrator {
         this.layers.push(l)
         this.selected_layer = l
         console.log("New layer " + name + " created.", l)
-        console.log("Current selected layer " + l.name)
+        this.update_layer_panel()
         return l
     }
 

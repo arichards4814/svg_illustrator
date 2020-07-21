@@ -1,0 +1,23 @@
+.layers_panel_item{
+    color: black;
+    background-color: aquamarine;
+}
+
+
+.fill{
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    border-color: gray;
+    border-style: solid;
+    margin: 2px;
+}
+
+.stroke{
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    border-color: gray;
+    border-style: solid;
+    margin: 2px
+}
