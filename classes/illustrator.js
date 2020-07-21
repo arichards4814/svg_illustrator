@@ -18,6 +18,7 @@ class Illustrator {
         this.selected_layer = l
         console.log("New layer " + name + " created.", l)
         console.log("Current selected layer " + l.name)
+        return l
     }
 
     remove_layer(name){
@@ -63,6 +64,16 @@ class Illustrator {
         } else {
             this.active_tool.handle_mouseup(e)
         }
+    }
+
+    find_layer_by_name(name){
+        let found = null
+        this.layers.forEach(layer => {
+            if(layer.name === name){
+                found = layer
+            }
+        })
+        return found
     }
 
 }

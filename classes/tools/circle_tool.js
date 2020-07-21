@@ -1,4 +1,4 @@
-class RectangleTool extends Tool{
+class CircleTool extends Tool{
 
     constructor(illustrator) {
         super()
@@ -7,24 +7,23 @@ class RectangleTool extends Tool{
     }
 
     handle_click(e){
+        this.test()
         let offset = this.get_page_position(e)
-        let newRT = new Rectangle(offset.x, offset.y, 0, 0)
+        let newRT = new Circle(offset.x, offset.y, 0)
         let newLayer = this.illustrator.new_layer(newRT)
-        newRT.setLayer(newLayer)
-        console.log(newRT)
         this.currentRect = newRT
 
-        console.log("New Rectangle created : " + newRT )
+        console.log("New Circle created : " + newRT )
     }
 
     handle_mousemove(e){
         let offset = this.get_page_position(e)
-        this.currentRect.setWidthHeight(offset.x, offset.y)
+        this.currentRect.setWidthHeight(offset.x)
     }
 
     handle_mouseup(e){
         let offset = this.get_page_position(e)
-        this.currentRect.setWidthHeight(offset.x, offset.y)
+        this.currentRect.setWidthHeight(offset.x)
         this.currentRect = null
     }
 

@@ -10,10 +10,21 @@ class Rectangle{
         this.svg = `
             <rect fill="black" x=${xPosition} y=${yPosition} width=${width} height=${height} />
         `
+        this.layer = null
+    }
+
+    setPosition(x, y){
+        this.xPosition = x
+        this.yPosition = y
+        this.rerender_svg()
     }
 
     get_html(){
         return this.svg
+    }
+
+    setLayer(lay){
+        this.layer = lay
     }
 
     setWidthHeight(width, height){
@@ -23,9 +34,15 @@ class Rectangle{
     }
 
     rerender_svg(){
-        this.svg = `
+        if(this.layer){
+            this.svg = `
+            <rect id=${this.layer.name} fill="black" x=${this.xPosition} y=${this.yPosition} width=${this.width} height=${this.height} />
+        `
+        } else {
+            this.svg = `
             <rect fill="black" x=${this.xPosition} y=${this.yPosition} width=${this.width} height=${this.height} />
         `
+        }
     }
 
 
