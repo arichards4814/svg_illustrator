@@ -5,4 +5,8 @@ class Layer {
         this.element = vector
     }
 
+    rename(newName){
+        this.name = newName
+    }
+
 }

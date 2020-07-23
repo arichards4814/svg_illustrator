@@ -22,6 +22,7 @@ function generate_tools(illustrator) {
     circle_button.addEventListener("click", () => {
         illustrator.set_active_tool(ct)
     })
+    illustrator.change_color_picker("black", "black")
 }
 generate_tools(illustrator)
 

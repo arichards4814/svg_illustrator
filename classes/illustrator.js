@@ -5,8 +5,15 @@ class Illustrator {
         this.layers = []
         this.selected_layer = null
         this.canvas = canvas
-        // this.color_picker_fill = "black"
-        // this.color_picker_stroke = "black"
+        this.color_picker_fill = "black"
+        this.color_picker_stroke = "black"
+    }
+
+    change_color_picker(fill = this.color_picker_fill, stroke = this.color_picker_stroke){
+        this.color_picker_fill = fill
+        this.color_picker_stroke = stroke
+        document.getElementById("fill").style.backgroundColor = this.color_picker_fill
+        document.getElementById("stroke").style.backgroundColor = this.color_picker_stroke
     }
 
     set_active_tool(tool) {
