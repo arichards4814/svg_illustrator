@@ -1,6 +1,18 @@
 let canvas = document.getElementById("canvas")
 let illustrator = new Illustrator(canvas)
 
+//for the picker
+let fill_parent = document.querySelector('#fill');
+let stroke_parent = document.querySelector('#stroke');
+let fill_picker = new Picker(fill_parent);
+let stroke_picker = new Picker(stroke_parent);
+fill_picker.onChange = function (color) {
+    fill_parent.style.background = color.rgbaString;
+};
+
+stroke_picker.onChange = function (color) {
+    stroke_parent.style.background = color.rgbaString;
+};
 
 function generate_tools(illustrator) {
     let st = new SelectionTool(illustrator)
