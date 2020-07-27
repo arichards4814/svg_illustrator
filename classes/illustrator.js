@@ -16,6 +16,14 @@ class Illustrator {
         document.getElementById("stroke").style.backgroundColor = this.color_picker_stroke
     }
 
+    update_fill(fill){
+        this.color_picker_fill = fill
+    }
+    
+    update_stroke(stroke){
+        this.color_picker_stroke = stroke
+    }
+
     set_active_tool(tool) {
         this.active_tool = tool
     }

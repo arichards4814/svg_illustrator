@@ -9,9 +9,10 @@ class RectangleTool extends Tool{
     handle_click(e){
         let offset = this.get_page_position(e)
         let newRT = new Rectangle(offset.x, offset.y, 0, 0)
+        newRT.setColors(this.illustrator.color_picker_fill, this.illustrator.color_picker_stroke)
+        console.log(newRT.fill)
         let newLayer = this.illustrator.new_layer(newRT)
         newRT.setLayer(newLayer)
-        console.log(newRT)
         this.currentRect = newRT
 
         console.log("New Rectangle created : " + newRT )
@@ -34,7 +35,7 @@ class RectangleTool extends Tool{
         let offsetX = e.clientX - offsets.left
         let offsetY = e.clientY - offsets.top
 
-        console.log(e.clientX, e.clientY, offsets.left, offsets.top)
+        // console.log(e.clientX, e.clientY, offsets.left, offsets.top)
         return {
             x: offsetX,
             y: offsetY

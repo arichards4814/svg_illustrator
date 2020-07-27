@@ -7,7 +7,7 @@ class Rectangle extends Vector{
         this.fill = "black"
         this.stroke = null
         this.svg = `
-            <rect fill="black" x=${xPosition} y=${yPosition} width=${width} height=${height} />
+            <rect fill=${this.fill} x=${xPosition} y=${yPosition} width=${width} height=${height} />
         `
     }
 
@@ -19,6 +19,14 @@ class Rectangle extends Vector{
         this.layer = lay
     }
 
+    setColors(fill, stroke){
+        console.log(fill, stroke)
+        this.fill = fill
+        this.stroke = stroke
+        this.rerender_svg()
+    }
+    
+
     setWidthHeight(width, height){
         this.width = width - this.xPosition
         this.height = height - this.yPosition 
@@ -28,11 +36,11 @@ class Rectangle extends Vector{
     rerender_svg(){
         if(this.layer){
             this.svg = `
-            <rect id=${this.layer.name} fill="black" x=${this.xPosition} y=${this.yPosition} width=${this.width} height=${this.height} />
+            <rect id=${this.layer.name} fill=${this.fill} x=${this.xPosition} y=${this.yPosition} width=${this.width} height=${this.height} />
         `
         } else {
             this.svg = `
-            <rect fill="black" x=${this.xPosition} y=${this.yPosition} width=${this.width} height=${this.height} />
+            <rect fill=${this.fill} x=${this.xPosition} y=${this.yPosition} width=${this.width} height=${this.height} />
         `
         }
     }

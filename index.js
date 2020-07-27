@@ -8,11 +8,18 @@ let fill_picker = new Picker(fill_parent);
 let stroke_picker = new Picker(stroke_parent);
 fill_picker.onChange = function (color) {
     fill_parent.style.background = color.rgbaString;
+
+    illustrator.update_fill(color.rgbaString)
+    illustrator.fill_picker_stroke = color.rgbaString;
 };
 
 stroke_picker.onChange = function (color) {
     stroke_parent.style.background = color.rgbaString;
+    // illustrator.color_picker_stroke = color.rgbaString;
+    illustrator.update_stroke(color.rgbaString)
+    console.log(illustrator.color_picker_stroke)
 };
+
 
 function generate_tools(illustrator) {
     let st = new SelectionTool(illustrator)
