@@ -6,7 +6,7 @@ class Circle extends Vector{
         this.fill = "black"
         this.stroke = null
         this.svg = `
-            <circle cx=${xPosition} cy=${yPosition} r=${radius} fill="black" />
+            <circle cx=${xPosition} cy=${yPosition} r=${radius} fill=${this.fill}/>
         `
     }
 
@@ -18,6 +18,13 @@ class Circle extends Vector{
         this.layer = layer
     }
 
+    setColors(fill, stroke) {
+        console.log(fill, stroke)
+        this.fill = fill
+        this.stroke = stroke
+        this.rerender_svg()
+    }
+
     setWidthHeight(radius){
         this.radius = radius - this.xPosition
         this.rerender_svg()
@@ -26,11 +33,11 @@ class Circle extends Vector{
     rerender_svg(){
         if (this.layer) {
             this.svg = `
-           <circle id=${this.layer.name} cx=${this.xPosition} cy=${this.yPosition} r=${this.radius} fill="black" />
+           <circle fill=${this.fill} id=${this.layer.name} cx=${this.xPosition} cy=${this.yPosition} r=${this.radius} />
          `
         } else {
             this.svg = `
-           <circle cx=${this.xPosition} cy=${this.yPosition} r=${this.radius} fill="black" />
+           <circle fill=${this.fill} cx=${this.xPosition} cy=${this.yPosition} r=${this.radius} />
         `
         }
     }

@@ -11,14 +11,20 @@
     <script src="classes/illustrator.js"></script>
     <link rel="stylesheet" href="css.css">
     <body>
-        <button id="selection">Selection</button>
-        <button id="rectangle">Rectangle</button>
-        <button id="circle">Circle</button>
-        <div id="fill" class="fill"></div><div id="stroke" class="stroke"></div>
-        <div id="parent">Test</div>
+        <div class="toolbar">
+            <button id="selection">Selection</button>
+            <button id="rectangle">Rectangle</button>
+            <button id="circle">Circle</button>
+            <div id="fill" class="fill"></div>
+            <div id="stroke" class="stroke"></div>
+            Stroke Width
+            <input id="stroke-input" type="range" min="0" max="100" value="0">
+        </div>
         <br>
-        <svg id="canvas" width="500" height="500" >
-        </svg>
+        <div style="background-color: gray; width: 504px; height: 504px">
+            <svg id="canvas" width="500" height="500" style="background-color: white;" >
+            </svg>
+        </div>
         <div>
             Layers
             <div id="layer_panel">

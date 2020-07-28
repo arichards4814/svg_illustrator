@@ -25,7 +25,7 @@ class SelectionTool extends Tool {
     handle_mousemove(e) {
         let initialX = this.initial_position.x
         let initialY = this.initial_position.y
-        console.log(initialX, initialY)
+        // console.log(initialX, initialY)
         //trying to get it to move at the correct position
         let offset = this.get_page_position(e)
         this.illustrator.selected_layer.element.setPosition(offset.x, offset.y)

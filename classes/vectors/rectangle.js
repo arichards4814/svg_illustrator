@@ -36,11 +36,11 @@ class Rectangle extends Vector{
     rerender_svg(){
         if(this.layer){
             this.svg = `
-            <rect id=${this.layer.name} fill=${this.fill} x=${this.xPosition} y=${this.yPosition} width=${this.width} height=${this.height} />
+            <rect id=${this.layer.name} fill=${this.fill} stroke-width="2px" stroke=${this.stroke} x=${this.xPosition} y=${this.yPosition} width=${this.width} height=${this.height} />
         `
         } else {
             this.svg = `
-            <rect fill=${this.fill} x=${this.xPosition} y=${this.yPosition} width=${this.width} height=${this.height} />
+            <rect fill=${this.fill} stroke=${this.stroke} stroke-width="2px" x=${this.xPosition} y=${this.yPosition} width=${this.width} height=${this.height} />
         `
         }
     }
