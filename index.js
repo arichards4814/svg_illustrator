@@ -20,6 +20,17 @@ stroke_picker.onChange = function (color) {
     console.log(illustrator.color_picker_stroke)
 };
 
+//for the stroke controller
+let stroke_input = document.getElementById("stroke-input")
+stroke_input.addEventListener("change", (e) => {
+    illustrator.update_stroke_width(e.target.value)
+})
+
+//delete button setup
+let delete_button = document.getElementById("delete")
+delete_button.addEventListener("click", (e) => {
+    // illustrator.delete_selected_layer()
+})
 
 function generate_tools(illustrator) {
     let st = new SelectionTool(illustrator)

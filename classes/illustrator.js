@@ -7,6 +7,7 @@ class Illustrator {
         this.canvas = canvas
         this.color_picker_fill = "black"
         this.color_picker_stroke = "black"
+        this.stroke_width = 0
     }
 
     change_color_picker(fill = this.color_picker_fill, stroke = this.color_picker_stroke){
@@ -14,6 +15,10 @@ class Illustrator {
         this.color_picker_stroke = stroke
         document.getElementById("fill").style.backgroundColor = this.color_picker_fill
         document.getElementById("stroke").style.backgroundColor = this.color_picker_stroke
+    }
+
+    update_stroke_width(new_stroke_width){
+        this.stroke_width = new_stroke_width
     }
 
     update_fill(fill){
@@ -48,8 +53,13 @@ class Illustrator {
 
     remove_layer(name){
         this.layers = this.layers.filter(layer => layer.name != name)
-        
     }
+
+    // delete_selected_layer(){
+    //     if(this.selected_layer){
+    //         this.layers = this.layers.filter(layer => layer.name != this.selected_layer.name)
+    //     }
+    // }
 
     render_layers() {
         removeAllChildNodes(this.canvas)

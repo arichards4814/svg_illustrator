@@ -5,6 +5,7 @@ class Circle extends Vector{
         this.radius = radius
         this.fill = "black"
         this.stroke = null
+        this.stroke_width = 0
         this.svg = `
             <circle cx=${xPosition} cy=${yPosition} r=${radius} fill=${this.fill}/>
         `
@@ -30,14 +31,20 @@ class Circle extends Vector{
         this.rerender_svg()
     }
 
+
+    setStrokeWidth(newStrokeWidth) {
+        this.stroke_width = newStrokeWidth
+        this.rerender_svg()
+    }
+
     rerender_svg(){
         if (this.layer) {
             this.svg = `
-           <circle fill=${this.fill} id=${this.layer.name} cx=${this.xPosition} cy=${this.yPosition} r=${this.radius} />
+           <circle fill=${this.fill} id=${this.layer.name} cx=${this.xPosition} cy=${this.yPosition} r=${this.radius} stroke=${this.stroke} stroke-width=${this.stroke_width} />
          `
         } else {
             this.svg = `
-           <circle fill=${this.fill} cx=${this.xPosition} cy=${this.yPosition} r=${this.radius} />
+           <circle fill=${this.fill} cx=${this.xPosition} cy=${this.yPosition} r=${this.radius} stroke=${this.stroke} stroke-width=${this.stroke_width} />
         `
         }
     }

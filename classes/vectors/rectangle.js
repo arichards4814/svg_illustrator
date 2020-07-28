@@ -6,6 +6,7 @@ class Rectangle extends Vector{
         this.height = height
         this.fill = "black"
         this.stroke = null
+        this.stroke_width = 0
         this.svg = `
             <rect fill=${this.fill} x=${xPosition} y=${yPosition} width=${width} height=${height} />
         `
@@ -33,14 +34,19 @@ class Rectangle extends Vector{
         this.rerender_svg()
     }
 
+    setStrokeWidth(newStrokeWidth){
+        this.stroke_width = newStrokeWidth
+        this.rerender_svg()
+    }
+
     rerender_svg(){
         if(this.layer){
             this.svg = `
-            <rect id=${this.layer.name} fill=${this.fill} stroke-width="2px" stroke=${this.stroke} x=${this.xPosition} y=${this.yPosition} width=${this.width} height=${this.height} />
+            <rect id=${this.layer.name} fill=${this.fill} stroke-width=${this.stroke_width} stroke=${this.stroke} x=${this.xPosition} y=${this.yPosition} width=${this.width} height=${this.height} />
         `
         } else {
             this.svg = `
-            <rect fill=${this.fill} stroke=${this.stroke} stroke-width="2px" x=${this.xPosition} y=${this.yPosition} width=${this.width} height=${this.height} />
+            <rect fill=${this.fill} stroke=${this.stroke} stroke-width=${this.stroke_width} x=${this.xPosition} y=${this.yPosition} width=${this.width} height=${this.height} />
         `
         }
     }

@@ -10,6 +10,7 @@ class CircleTool extends Tool{
         let offset = this.get_page_position(e)
         let newRT = new Circle(offset.x, offset.y, 0)
         newRT.setColors(this.illustrator.color_picker_fill, this.illustrator.color_picker_stroke)
+        newRT.setStrokeWidth(this.illustrator.stroke_width)
         let newLayer = this.illustrator.new_layer(newRT)
         newRT.setLayer(newLayer)
         this.currentRect = newRT
